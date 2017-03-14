@@ -87,25 +87,25 @@ class Register extends Component {
         <Form.Field>
           <label>Password</label>
           <Input>
-          <Input type="password" placeholder="" ref="password" required={true}/>
+          <input type="password" placeholder="" ref="password" required={true}/>
           </Input>
         </Form.Field>
         <Form.Field>
           <label>First Name</label>
           <Input>
-          <Input type="text" placeholder="" ref="first_name" required={true}/>
+          <input type="text" placeholder="" ref="first_name" required={true}/>
           </Input>
         </Form.Field>
         <Form.Field>
           <label>Last Name</label>
           <Input>
-          <Input type="text" placeholder="" ref="last_name" required={true}/>
+          <input type="text" placeholder="" ref="last_name" required={true}/>
           </Input>
         </Form.Field>
         <Form.Field>
           <label>Email</label>
           <Input>
-          <Input type="text" placeholder="" ref="email" onKeyPress={this.onEmail} required={true}/>
+          <input type="text" placeholder="" ref="email" onKeyPress={this.onEmail} required={true}/>
           </Input>
           {this.state.emailerror?<Label basic color='red' pointing>Invalid Format of Email</Label>:
           <p></p>}

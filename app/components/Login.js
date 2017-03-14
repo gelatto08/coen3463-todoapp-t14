@@ -50,7 +50,7 @@ class Login extends Component {
     
     render(){
     return (
-       <Form>
+        <Form>
       {this.state.error?
       <Message negative>
         <Message.Header>{this.state.title}</Message.Header>
@@ -60,12 +60,12 @@ class Login extends Component {
         <Form.Field>
           <label>Username</label>
           <Input>
-          <Input type="text" placeholder="" size="tiny" ref="username"/></Input>
+          <input type="text" placeholder="" size="tiny" ref="username"/></Input>
         </Form.Field>
         <Form.Field>
           <label>Password</label>
           <Input>
-          <Input type="password" placeholder="" ref="password"/></Input>
+          <input type="password" placeholder="" ref="password"/></Input>
         </Form.Field>
         <Button onClick={this.onLogin} value="Login" primary>Login</Button>
     </Form>

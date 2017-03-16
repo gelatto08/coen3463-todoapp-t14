@@ -67,10 +67,10 @@ class Todo extends React.Component{
                 <Menu inverted>
                   <Menu.Item name='List of Todo Items' active={this.props.activeItem === 'all'} onClick={this.props.todoAll} />
                   <Menu.Item name='On-Going Items' active={this.props.activeItem === 'open'} onClick={this.props.todoOpen} />
-                  <Menu.Item name='Finished Items' active={this.props.activeItem === 'completed'} onClick={this.props.todoCompleted} />
+                  <Menu.Item name='Finished Items' active={this.props.activeItem === 'Completed'} onClick={this.props.todoCompleted} />
                   <Menu.Menu position='right'>
-                    <Menu.Item name='Clear All Completed' onClick={this.props.DelAllComplete} />
-                    <Menu.Item name='logout' onClick={this.props.onLogOut} />
+                    <Menu.Item name='Clear All Finished' onClick={this.props.DelAllComplete} />
+                    <Menu.Item icon='power' onClick={this.props.onLogOut} />
                   </Menu.Menu>
                 </Menu>
                 <Form>

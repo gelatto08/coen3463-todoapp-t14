@@ -47232,13 +47232,13 @@ var Todo = function (_React$Component) {
                         _react2.default.createElement(
                             _semanticUiReact.Menu,
                             { inverted: true },
-                            _react2.default.createElement(_semanticUiReact.Menu.Item, { name: 'List of Todo Items', active: this.props.activeItem === 'all', onClick: this.props.todoAll }),
-                            _react2.default.createElement(_semanticUiReact.Menu.Item, { name: 'On-Going Items', active: this.props.activeItem === 'open', onClick: this.props.todoOpen }),
-                            _react2.default.createElement(_semanticUiReact.Menu.Item, { name: 'Finished Items', active: this.props.activeItem === 'Completed', onClick: this.props.todoCompleted }),
+                            _react2.default.createElement(_semanticUiReact.Menu.Item, { name: 'All', active: this.props.activeItem === 'all', onClick: this.props.todoAll }),
+                            _react2.default.createElement(_semanticUiReact.Menu.Item, { name: 'Open', active: this.props.activeItem === 'open', onClick: this.props.todoOpen }),
+                            _react2.default.createElement(_semanticUiReact.Menu.Item, { name: 'Completed', active: this.props.activeItem === 'Completed', onClick: this.props.todoCompleted }),
                             _react2.default.createElement(
                                 _semanticUiReact.Menu.Menu,
                                 { position: 'right' },
-                                _react2.default.createElement(_semanticUiReact.Menu.Item, { name: 'Clear All Finished', onClick: this.props.DelAllComplete }),
+                                _react2.default.createElement(_semanticUiReact.Menu.Item, { name: 'Clear All Completed', onClick: this.props.DelAllComplete }),
                                 _react2.default.createElement(_semanticUiReact.Menu.Item, { icon: 'power', onClick: this.props.onLogOut })
                             )
                         ),

@@ -1,6 +1,6 @@
 import React from 'react'
 import './App.css';
-import { Container, Grid,Segment } from 'semantic-ui-react';
+import { Container } from 'semantic-ui-react';
 
 class App extends React.Component{
     constructor(props) {

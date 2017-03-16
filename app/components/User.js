@@ -2,25 +2,40 @@ import React, {PropTypes} from 'react';
 import '../components/App.css';
 import Login from '../components/Login.js';
 import Register from '../components/Register.js';
-import { Button, Checkbox, Form, Input, Message } from 'semantic-ui-react';
+import { Button, Checkbox, Form, Input, Message,Menu } from 'semantic-ui-react';
 
 
 
 function User(props){
     return(
-        <div>
+        <div className="App-body">
             {props.login?
-                <div className="App-section" onFocus={props.handleLogin}>
-                    <div>
-                        <Login/>   
-                        <br/>
-                        <Button onClick={props.switch} value="RegForm" primary>Register</Button> 
-                    </div>              
+                <div className="App-sections" onFocus={props.handleLogin}>
+                    
+                    <Menu compact>
+                      <Menu.Item active>
+                        <Login/>
+                      </Menu.Item>
+
+                      <Menu.Item active>
+                         <Button onClick={props.switch} value="RegForm" primary>Register</Button> 
+                      </Menu.Item>
+                    </Menu>
+                        
+                               
                 </div>:
-                <div className="App-section" onFocus={props.handleRegister}>                  
-                    <Register />
-                    <br/>
-                    <Button onClick={props.switch} value="LoginForm" secondary>Back</Button>
+                <div className="App-sections" onFocus={props.handleRegister}>      
+                    <Menu compact>
+                        <Menu.Item active>
+                            <Register />
+                        </Menu.Item>
+                        <Menu.Item active>
+                            <Button onClick={props.switch} value="LoginForm" secondary>Back</Button>
+                        </Menu.Item>
+                    </Menu>            
+                    
+                    
+                    
                 </div>
             }
         </div>

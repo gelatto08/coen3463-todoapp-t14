@@ -3,7 +3,7 @@ import '../components/App.css';
 import ToDos from '../components/ToDos.js';
 import Loading from './loading';
 import TodoApi from '../api/TodoApi';
-import { Segment, Menu, Input, Form, List } from 'semantic-ui-react'
+import { Segment, Menu, Input, Form, List, Button, Divider } from 'semantic-ui-react'
 import { Container } from 'semantic-ui-react'
 
 var moment = require('moment-timezone');
@@ -48,19 +48,26 @@ class Todo extends React.Component{
     return(
         <div className="App-section">
                 <div className="App-header">
-                    <p style={{textAlign:'center'}}>To Do App!</p>
+                    <p style={{textAlign:'center'}}>Todo Application!</p>
                     
                 </div>
                 {this.props.isLoading? 
-                <Loading text="Please Wait" speed={300}/>
+                <Loading text="Loading..." speed={300}/>
                 :
                 <Container>
-                <p>{this.props.name} | {this.props.email}</p>
-                <div className="App-section">
-                <Menu pointing secondary>
-                  <Menu.Item name='all' active={this.props.activeItem === 'all'} onClick={this.props.todoAll} />
-                  <Menu.Item style={{color: 'blue'}} name='open' active={this.props.activeItem === 'open'} onClick={this.props.todoOpen} />
-                  <Menu.Item style={{color: 'red'}}  name='completed' active={this.props.activeItem === 'completed'} onClick={this.props.todoCompleted} />
+                <Segment inverted>
+
+                <Divider inverted />
+                <Divider horizontal inverted><p>{this.props.name}</p></Divider>
+                
+                 <Divider horizontal inverted><p>{this.props.email}</p></Divider>
+                </Segment>
+               
+                <div className="App-menu">
+                <Menu inverted>
+                  <Menu.Item name='List of Todo Items' active={this.props.activeItem === 'all'} onClick={this.props.todoAll} />
+                  <Menu.Item name='On-Going Items' active={this.props.activeItem === 'open'} onClick={this.props.todoOpen} />
+                  <Menu.Item name='Finished Items' active={this.props.activeItem === 'completed'} onClick={this.props.todoCompleted} />
                   <Menu.Menu position='right'>
                     <Menu.Item name='Clear All Completed' onClick={this.props.DelAllComplete} />
                     <Menu.Item name='logout' onClick={this.props.onLogOut} />
@@ -68,14 +75,16 @@ class Todo extends React.Component{
                 </Menu>
                 <Form>
                 <Form.Field>
-                    <Input size="medium">
-                        <input placeholder="Add a To Do item." ref="todo"/>
-                        <button onClick={this.onAddTodo}>+</button>
+                <Segment inverted>
+                    <Input size="medium" inverted>
+                        <input inverted placeholder="Add a new item." ref="todo"/>
+                        <Button icon='add circle' onClick={this.onAddTodo} inverted/>
                     </Input>
+                </Segment>
                 </Form.Field>
                 </Form>
-                <Segment>
-                    <div className="App-section">
+                <Segment inverted>
+                    <div className="App-menu">
                     {this.props.onUpdate? <Loading text="Just one second" speed={300}/>:
                     <div>{(this.props.originalitems - this.props.completedCount)=== 1?
                     <p>{this.props.originalitems - this.props.completedCount}/{this.props.originalitems} item left</p>:

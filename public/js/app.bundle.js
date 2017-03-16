@@ -21745,6 +21745,8 @@ var _react2 = _interopRequireDefault(_react);
 
 __webpack_require__(100);
 
+var _semanticUiReact = __webpack_require__(92);
+
 var _loading = __webpack_require__(152);
 
 var _loading2 = _interopRequireDefault(_loading);
@@ -21761,20 +21763,16 @@ var ToDos = function ToDos(props) {
             { style: { textDecoration: props.item.isCompleted ? 'line-through' : 'none' } },
             props.item.name,
             _react2.default.createElement(
-                'button',
-                { onClick: function onClick(e) {
+                _semanticUiReact.Segment,
+                { inverted: true },
+                _react2.default.createElement(_semanticUiReact.Button, { icon: 'checkmark', color: 'green', onClick: function onClick(e) {
                         e.preventDefault();
                         props.onComplete(props.item, props.index);
-                    } },
-                '/'
-            ),
-            _react2.default.createElement(
-                'button',
-                { size: 'small', onClick: function onClick(e) {
+                    } }),
+                _react2.default.createElement(_semanticUiReact.Button, { icon: 'remove', color: 'red', onClick: function onClick(e) {
                         e.preventDefault();
                         props.OnDelete(props.item, props.index);
-                    } },
-                'X'
+                    } })
             )
         )
     );
@@ -47199,28 +47197,44 @@ var Todo = function (_React$Component) {
                     _react2.default.createElement(
                         'p',
                         { style: { textAlign: 'center' } },
-                        'To Do App!'
+                        'Todo Application!'
                     )
                 ),
-                this.props.isLoading ? _react2.default.createElement(_loading2.default, { text: 'Please Wait', speed: 300 }) : _react2.default.createElement(
+                this.props.isLoading ? _react2.default.createElement(_loading2.default, { text: 'Loading...', speed: 300 }) : _react2.default.createElement(
                     _semanticUiReact.Container,
                     null,
                     _react2.default.createElement(
-                        'p',
-                        null,
-                        this.props.name,
-                        ' | ',
-                        this.props.email
+                        _semanticUiReact.Segment,
+                        { inverted: true },
+                        _react2.default.createElement(_semanticUiReact.Divider, { inverted: true }),
+                        _react2.default.createElement(
+                            _semanticUiReact.Divider,
+                            { horizontal: true, inverted: true },
+                            _react2.default.createElement(
+                                'p',
+                                null,
+                                this.props.name
+                            )
+                        ),
+                        _react2.default.createElement(
+                            _semanticUiReact.Divider,
+                            { horizontal: true, inverted: true },
+                            _react2.default.createElement(
+                                'p',
+                                null,
+                                this.props.email
+                            )
+                        )
                     ),
                     _react2.default.createElement(
                         'div',
-                        { className: 'App-section' },
+                        { className: 'App-menu' },
                         _react2.default.createElement(
                             _semanticUiReact.Menu,
-                            { pointing: true, secondary: true },
-                            _react2.default.createElement(_semanticUiReact.Menu.Item, { name: 'all', active: this.props.activeItem === 'all', onClick: this.props.todoAll }),
-                            _react2.default.createElement(_semanticUiReact.Menu.Item, { style: { color: 'blue' }, name: 'open', active: this.props.activeItem === 'open', onClick: this.props.todoOpen }),
-                            _react2.default.createElement(_semanticUiReact.Menu.Item, { style: { color: 'red' }, name: 'completed', active: this.props.activeItem === 'completed', onClick: this.props.todoCompleted }),
+                            { inverted: true },
+                            _react2.default.createElement(_semanticUiReact.Menu.Item, { name: 'List of Todo Items', active: this.props.activeItem === 'all', onClick: this.props.todoAll }),
+                            _react2.default.createElement(_semanticUiReact.Menu.Item, { name: 'On-Going Items', active: this.props.activeItem === 'open', onClick: this.props.todoOpen }),
+                            _react2.default.createElement(_semanticUiReact.Menu.Item, { name: 'Finished Items', active: this.props.activeItem === 'completed', onClick: this.props.todoCompleted }),
                             _react2.default.createElement(
                                 _semanticUiReact.Menu.Menu,
                                 { position: 'right' },
@@ -47235,23 +47249,23 @@ var Todo = function (_React$Component) {
                                 _semanticUiReact.Form.Field,
                                 null,
                                 _react2.default.createElement(
-                                    _semanticUiReact.Input,
-                                    { size: 'medium' },
-                                    _react2.default.createElement('input', { placeholder: 'Add a To Do item.', ref: 'todo' }),
+                                    _semanticUiReact.Segment,
+                                    { inverted: true },
                                     _react2.default.createElement(
-                                        'button',
-                                        { onClick: this.onAddTodo },
-                                        '+'
+                                        _semanticUiReact.Input,
+                                        { size: 'medium', inverted: true },
+                                        _react2.default.createElement('input', { inverted: true, placeholder: 'Add a new item.', ref: 'todo' }),
+                                        _react2.default.createElement(_semanticUiReact.Button, { icon: 'add circle', onClick: this.onAddTodo, inverted: true })
                                     )
                                 )
                             )
                         ),
                         _react2.default.createElement(
                             _semanticUiReact.Segment,
-                            null,
+                            { inverted: true },
                             _react2.default.createElement(
                                 'div',
-                                { className: 'App-section' },
+                                { className: 'App-menu' },
                                 this.props.onUpdate ? _react2.default.createElement(_loading2.default, { text: 'Just one second', speed: 300 }) : _react2.default.createElement(
                                     'div',
                                     null,
@@ -47336,30 +47350,48 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function User(props) {
     return _react2.default.createElement(
         'div',
-        null,
+        { className: 'App-body' },
         props.login ? _react2.default.createElement(
             'div',
-            { className: 'App-section', onFocus: props.handleLogin },
+            { className: 'App-sections', onFocus: props.handleLogin },
             _react2.default.createElement(
-                'div',
-                null,
-                _react2.default.createElement(_Login2.default, null),
-                _react2.default.createElement('br', null),
+                _semanticUiReact.Menu,
+                { compact: true },
                 _react2.default.createElement(
-                    _semanticUiReact.Button,
-                    { onClick: props.switch, value: 'RegForm', primary: true },
-                    'Register'
+                    _semanticUiReact.Menu.Item,
+                    { active: true },
+                    _react2.default.createElement(_Login2.default, null)
+                ),
+                _react2.default.createElement(
+                    _semanticUiReact.Menu.Item,
+                    { active: true },
+                    _react2.default.createElement(
+                        _semanticUiReact.Button,
+                        { onClick: props.switch, value: 'RegForm', primary: true },
+                        'Register'
+                    )
                 )
             )
         ) : _react2.default.createElement(
             'div',
-            { className: 'App-section', onFocus: props.handleRegister },
-            _react2.default.createElement(_Register2.default, null),
-            _react2.default.createElement('br', null),
+            { className: 'App-sections', onFocus: props.handleRegister },
             _react2.default.createElement(
-                _semanticUiReact.Button,
-                { onClick: props.switch, value: 'LoginForm', secondary: true },
-                'Back'
+                _semanticUiReact.Menu,
+                { compact: true },
+                _react2.default.createElement(
+                    _semanticUiReact.Menu.Item,
+                    { active: true },
+                    _react2.default.createElement(_Register2.default, null)
+                ),
+                _react2.default.createElement(
+                    _semanticUiReact.Menu.Item,
+                    { active: true },
+                    _react2.default.createElement(
+                        _semanticUiReact.Button,
+                        { onClick: props.switch, value: 'LoginForm', secondary: true },
+                        'Back'
+                    )
+                )
             )
         )
     );
@@ -83058,7 +83090,7 @@ exports = module.exports = __webpack_require__(646)();
 
 
 // module
-exports.push([module.i, ".App {\r\n}\r\n\r\n.App-logo {\r\n  animation: App-logo-spin infinite 20s linear;\r\n  height: 80px;\r\n}\r\n\r\n.App-header {\r\n  background-color: darkblue;\r\n  height: 50px;\r\n  padding: 20px;\r\n  color: white;\r\n}\r\n\r\n.App-intro {\r\n  font-size: large;\r\n  padding-left: 50px;\r\n}\r\n\r\n\r\n\r\n@keyframes App-logo-spin {\r\n  from { transform: rotate(0deg); }\r\n  to { transform: rotate(360deg); }\r\n}\r\n", ""]);
+exports.push([module.i, ".App {\r\n\r\n}\r\n.App-section {\r\n  margin-top: 50px;\r\n  margin-left: 250px;\r\n  margin-right: 250px;\r\n  margin-bottom: 10px;\r\n\r\n}\r\n.App-sections {\r\n  margin-top: 50px;\r\n  margin-left: 450px;\r\n  margin-right: 450px;\r\n\r\n}\r\n\r\n\r\n.App-logo {\r\n  animation: App-logo-spin infinite 20s linear;\r\n  height: 80px;\r\n}\r\n\r\n.App-header {\r\n  background-image: url(\"http://kingofwallpapers.com/background-dark/background-dark-010.jpg\");\r\n  height: 50px;\r\n  padding: 50px;\r\n  color: white;\r\n}\r\n\r\n.App-intro {\r\n  font-size: large;\r\n  padding-left: 50px;\r\n}\r\n\r\n\r\n@keyframes App-logo-spin {\r\n  from { transform: rotate(0deg); }\r\n  to { transform: rotate(360deg); }\r\n}\r\n", ""]);
 
 // exports
 

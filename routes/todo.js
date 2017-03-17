@@ -17,7 +17,7 @@ router.post('/addtodo', (req,res)=>{
              return res.json({
                 success: false,
                 title: 'Error',
-                response: 'Error occured'
+                response: 'Error Occured'
             });
         }
         console.log("user found");

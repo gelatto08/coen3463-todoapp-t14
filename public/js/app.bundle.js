@@ -47197,7 +47197,7 @@ var Todo = function (_React$Component) {
                     _react2.default.createElement(
                         'p',
                         { style: { textAlign: 'center' } },
-                        'Todo Application!'
+                        'TODO THIS!'
                     )
                 ),
                 this.props.isLoading ? _react2.default.createElement(_loading2.default, { text: 'Loading...', speed: 300 }) : _react2.default.createElement(
@@ -47266,23 +47266,23 @@ var Todo = function (_React$Component) {
                             _react2.default.createElement(
                                 'div',
                                 { className: 'App-menu' },
-                                this.props.onUpdate ? _react2.default.createElement(_loading2.default, { text: 'Just one second', speed: 300 }) : _react2.default.createElement(
+                                this.props.onUpdate ? _react2.default.createElement(_loading2.default, { text: 'Loading', speed: 300 }) : _react2.default.createElement(
                                     'div',
                                     null,
-                                    this.props.originalitems - this.props.completedCount === 1 ? _react2.default.createElement(
+                                    this.props.completedCount === 1 ? _react2.default.createElement(
                                         'p',
                                         null,
-                                        this.props.originalitems - this.props.completedCount,
+                                        this.props.completedCount,
                                         '/',
                                         this.props.originalitems,
-                                        ' item left'
+                                        ' item Completed'
                                     ) : _react2.default.createElement(
                                         'p',
                                         null,
-                                        this.props.originalitems - this.props.completedCount,
+                                        this.props.completedCount,
                                         '/',
                                         this.props.originalitems,
-                                        ' items left'
+                                        ' items Completed'
                                     ),
                                     this.props.onUpdate ? _react2.default.createElement(_loading2.default, { text: 'Loading', speed: 300 }) : _react2.default.createElement(
                                         'div',
